@@ -1,9 +1,13 @@
 import csv
  
-with open('/media/aditya/Windows/Users/shant/Pictures/data/Data_Entry_2017.csv', 'rt') as inp, open('4177_single_diseases.csv', 'at') as out:
+with open('/media/aditya/Windows/Users/shant/Pictures/data/Data_Entry_2017.csv', 'rt') as inp, open('/media/aditya/Windows/Users/shant/Pictures/data/f25.csv', 'wt') as out:
     writer = csv.writer(out)
+    c=0;
     for row in csv.reader(inp):
-        if row[1].find("00001336_000.png") != -1:
-        	print(row[1])
-        	writer.writerow(row)
-        	break
+    	if(c<=25000):
+        	if row[1].find("|") == -1:
+        		# print(row[1])
+        		print (c);
+        		writer.writerow(row)
+        	# break
+        	c=c+1
